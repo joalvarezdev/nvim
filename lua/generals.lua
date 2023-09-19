@@ -14,6 +14,7 @@ vim.o.errorbells = false
 vim.o.smartcase = true
 vim.o.signcolumn = 'yes'
 vim.o.linespace = 8
+vim.opt.clipboard = "unnamedplus"
 
 -- tabs and shifts
 

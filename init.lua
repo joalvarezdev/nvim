@@ -23,3 +23,5 @@ require("lua-line")
 require("rest_vim")
 
 require("db_ui")
+
+require("java_keys")

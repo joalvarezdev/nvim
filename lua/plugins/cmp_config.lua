@@ -1,5 +1,7 @@
 local cmp = require("cmp")
 local luasnip = require("luasnip")
+local lspkind = require("lspkind")
+local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 
 local select_opts = { behavior = cmp.SelectBehavior.Select }
 
@@ -16,6 +18,7 @@ cmp.setup({
     {name = "nvim_lsp"},
     {name = "buffer", keyword_length = 3},
     {name = "luasnip", keyword_length = 2},
+    {}
   },
 
   window = {
@@ -78,9 +81,31 @@ cmp.setup({
   end
 })
 
-cmp.setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover" }, {
-  sources = {
-    { name = "dap"},
-  },
+--cmp.setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover" }, {
+--  sources = {
+--    { name = "dap"},
+--  },
+--})
+
+cmp.setup.filetype({ "sql", "mysql", "plsql"}, {
+  sources = cmp.config.sources({
+    { name = "vim-dadbod-completion" },
+  },{
+    { name = "buffer" }
+    } 
+  )
 })
+
+cmp.setup.cmdline(":", {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources(
+  {
+    { name = "path"},
+
+  }, {
+    {name = "cmdline"}
+  })
+})
+
+
 

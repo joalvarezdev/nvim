@@ -1,5 +1,3 @@
-
 require "global"
-
 require "plugins"
 

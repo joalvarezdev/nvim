@@ -1,4 +1,5 @@
+local map = vim.keymap.set
 
-map_key("n", "<C-j>", ":BufferPrevious<CR>")
-map_key("n", "<C-k>", ":BufferNext<CR>")
-map_key("n", "<A-e>", ":BufferClose<CR>")
+map("n", "<C-j>", ":BufferPrevious<CR>")
+map("n", "<C-k>", ":BufferNext<CR>")
+map("n", "<A-e>", ":BufferClose<CR>")

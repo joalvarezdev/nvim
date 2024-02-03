@@ -1,3 +1,5 @@
+local map = vim.keymap.set
+
 local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
@@ -12,4 +14,14 @@ lspconfig.pyright.setup({
   filetypes = {"python"}
 })
 
-map_key("n", "<leader>ma", ":Mason<CR>")
+lspconfig.tsserver.setup({
+  init_options = {
+    preferences = {
+      disableSuggestions = true,
+    }
+  }
+})
+
+
+
+map("n", "<leader>ma", ":Mason<CR>")

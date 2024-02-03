@@ -1,3 +1,5 @@
+local map = vim.keymap.set
+
 vim.g.db_ui_use_nerd_fonts = 1
 vim.g.db_ui_show_database_icon = 1
 vim.g.db_ui_force_echo_notifications = 1
@@ -32,8 +34,12 @@ vim.g.db_ui_icons = {
     connection_error = '✕',
 }
 
-vim.keymap.set("n", "<leader>ad", ":tab DBUI<CR>", {})
-vim.keymap.set("n", "<A-4>", ":DBUIToggle<CR>", {})
+map("n", "<leader>ad", ":tab DBUI<CR>", {})
+map("n", "<A-4>", ":DBUIToggle<CR>", {})
+map("v", "<A-e>", ":DBUI_ExecuteQuery<CR>", {})
 
 -- vim.keymap.set("n", "<leader>bd", ":tab DBUI<CR>", {})
 
+vim.cmd([[
+autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer({ sources = {{ name = 'vim-dadbod-completion' }} })
+]])

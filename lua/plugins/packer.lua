@@ -5,17 +5,11 @@ packer.init({
   package_root = util.join_paths(vim.fn.stdpath("data"), "site", "pack")
 })
 
-
---if fn.empty(fn.glob(install_path)) > 0 then
-	--packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', packa})
---end
-
 packer.startup(function(use)
   use "wbthomason/packer.nvim"
   -- Themes
   use "ellisonleao/gruvbox.nvim"
   use "AstroNvim/astrotheme"
-
   use "nvim-treesitter/nvim-treesitter"
 
   use "nvim-tree/nvim-web-devicons"
@@ -31,7 +25,7 @@ packer.startup(function(use)
   use "romgrk/barbar.nvim"
 
   use "nvim-lualine/lualine.nvim"
-
+ 
   -- Telescope
   use "nvim-lua/plenary.nvim"
   use "nvim-lua/popup.nvim"
@@ -43,13 +37,23 @@ packer.startup(function(use)
   use {
     "hrsh7th/nvim-cmp",
     requires = {
-      "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path", "L3MON4D3/LuaSnip"
+      "hrsh7th/cmp-path", 
+      "hrsh7th/cmp-nvim-lua",
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-cmdline",
+      "hrsh7th/cmp-git",
+      "saadparwaiz1/cmp_luasnip",
+      "onsails/lspkind-nvim",
+      {"L3MON4D3/LuaSnip", version = "v1.*" },
+      "windwp/nvim-autopairs"
     }
   }
 
   use "williamboman/mason.nvim"
+  use "williamboman/mason-lspconfig.nvim"
+  use "WhoIsSethDaniel/mason-tool-installer"
+
   use "mfussenegger/nvim-jdtls"
 
 
@@ -58,9 +62,10 @@ packer.startup(function(use)
     requires = {
       "tpope/vim-dadbod",
       "kristijanhusak/vim-dadbod-ui",
+      "kristijanhusak/vim-dadbod-completion",
+      "tpope/vim-dotenv"
     }
   }
-
 
   use {
     "rest-nvim/rest.nvim",
@@ -69,23 +74,16 @@ packer.startup(function(use)
     }
   }
 
-
   use{
     "iamcco/markdown-preview.nvim",
     run = function() vim.fn["mkdp#util#install"]() end,
   }
+
+  use "mfussenegger/nvim-dap"
+  use "rcarriga/cmp-dap"
+
+  use {"catppuccin/nvim", as = "catppuccin"}
+
+  use "stevearc/conform.nvim"
+
 end)
-
---packer.startup(function(use)
-
-  --use "lukas-reineke/indent-blankline.nvim" use "tpope/vim-commentary"
-
-
-
-  --use "mfussenegger/nvim-dap"
-  --use "rcarriga/cmp-dap"
-
-
-  --use "tpope/vim-fugitive"
-  --use "lewis6991/gitsigns.nvim"
---

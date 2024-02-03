@@ -26,4 +26,4 @@ require("rest-nvim").setup({
   yank_dry_run = true,
 })
 
-map_key("n", "<leader>rr", ":lua require('rest-nvim').run()<CR>")
+map("n", "<leader>rr", ":lua require('rest-nvim').run()<CR>")

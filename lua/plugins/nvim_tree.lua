@@ -1,3 +1,5 @@
+local map = vim.keymap.set
+
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
@@ -19,6 +21,6 @@ require("nvim-tree").setup({
   }
 })
 
-map_key("n", "<A-1>", ":NvimTreeOpen<CR>")
-map_key("n", "<A-2>", ":BufferLast<CR>")
-map_key("n", "<A-3>", ":NvimTreeToggle<CR>")
+map("n", "<A-2>", ":NvimTreeOpen<CR>")
+map("n", "<A-3>", ":BufferLast<CR>")
+map("n", "<A-1>", ":NvimTreeToggle<CR>")

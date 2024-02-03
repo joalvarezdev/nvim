@@ -37,7 +37,8 @@ vim.bo.autoindent = true
 vim.bo.smartindent = true
 
 -- COLOR SCHEME
-vim.cmd("colorscheme gruvbox")
+-- vim.cmd("colorscheme gruvbox")
+vim.cmd.colorscheme "catppuccin"
 vim.o.background = "dark"
 vim.cmd("set splitright")
 

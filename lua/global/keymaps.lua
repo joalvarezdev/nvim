@@ -1,27 +1,38 @@
-
+local map = vim.keymap.set
 -- Leader
 vim.g.mapleader = " "
 
-map_key('n', '<leader>so', ':source %<CR>')
+map("n", "<leader>rr", ":source %<CR>", { desc = "Reload configuration" })
 
-map_key('i', 'jk', '<ESC>')
-map_key('n', '<leader>w', ':w<CR>')
-map_key('n', '<leader>q', ':q!<CR>')
-map_key('n', '<leader>e', ':wq<CR>')
+-- tabulation
+map("v", "<", "<gv", { desc = "Indent out and keep the selection" })
+map("v", ">", ">gv", { desc = "Indent in and keep the selection" })
+
+-- search resul focus
+map("n", "n", "nzzzv", { desc = "Goes to next result on the search and put the cursor in the middle of the screen" })
+map("n", "N", "Nzzzv", { desc = "Goes to prev result on the search and put the cursor in the middle of the screen" })
 
 
-map_key("n", "<A-h>", ":wincmd h<CR>")
-map_key("n", "<A-l>", ":wincmd l<CR>")
-map_key("n", "<A-j>", ":wincmd j<CR>")
-map_key("n", "<A-k>", ":wincmd k<CR>")
+-- map_key('n', '<leader>so', ':source %<CR>')
+
+map('i', 'jk', '<ESC>')
+map('n', '<leader>w', ':w<CR>')
+map('n', '<leader>q', ':q!<CR>')
+map('n', '<leader>e', ':wq<CR>')
+
+
+map("n", "<A-h>", ":wincmd h<CR>")
+map("n", "<A-l>", ":wincmd l<CR>")
+map("n", "<A-j>", ":wincmd j<CR>")
+map("n", "<A-k>", ":wincmd k<CR>")
 
 -- TABS
 
-map_key("n", "<A-a>", ":tabprevious<CR>") 
-map_key("n", "<A-d>", ":tabnext<CR>") 
+map("n", "<A-a>", ":tabprevious<CR>") 
+map("n", "<A-d>", ":tabnext<CR>") 
 
 -- MARKDOWN PREVIEW
 
-map_key("n", "<leader>md", ":MarkdownPreview<CR>")
-map_key("n", "<leader>mds", ":MarkdownPreviewStop<CR>")
+map("n", "<leader>md", ":MarkdownPreview<CR>")
+map("n", "<leader>mds", ":MarkdownPreviewStop<CR>")
 
